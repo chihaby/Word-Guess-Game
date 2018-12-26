@@ -4,13 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Word Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script
+     src="https://code.jquery.com/jquery-3.3.1.js"
+     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+     crossorigin="anonymous"></script>
+    <title>Word-Guessing-Game</title>
     <link>
 </head>
 <body>
-     <div>
-         <h2>Word Guess Game</h2>
-     </div>
+    <div>
+        <h2>Word-Guessing-Game</h2>
+        <h3>start guessing</h3>
+    </div>
+    <div class="game">
+        <div class="guess"></div>
+        <form class="guessForm" onsubmit = 'return main()'>
+        <input type="text" class="guessLetter" maxlength="1"  placeholder="Enter a letter . . . &#x23ce;"/> <button type="submit" class="guessButton">Guess</button>
+        </form>  
+        <p>Hint: words are web related. <br/></p>
+        <div class="wrong">
+          <div class="wrongLetters"></div>
+        </div>
+        <div class="message">
+          <h1 class="title"></h1>
+          <p class="text"></p>
+          <button class="restart button">Play Again?</button>
+          
+        </div>
+    </div>
+            
      <script src="assets/javascript/game.js"></script>
 </body>
 </html>
