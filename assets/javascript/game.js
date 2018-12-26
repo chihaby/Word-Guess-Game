@@ -5,7 +5,7 @@ var game = {
   singerB : 'clapton',
   singerC : 'hendrix',
   wins : 0,
-  remaining : 4,
+  remaining : 10,
   correctGuess: '',
   wrongGuess : '',
   goodSound: new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/goodbell.mp3"),
@@ -19,22 +19,27 @@ var splitA = game.singerA.split('');
 var splitB = game.singerB.split('');
 var splitC = game.singerC.split('');
 
-var userInput = $(".guessLetter").value;
+var x = document.getElementById("userInput");
 
 function main() {
     document.addEventListener('keydown', function(){
-          if (splitA.includes(userInput)){
-            game.wins; game.remaining; game.correctGuess += event.key; game.goodSound.play();
+          if (splitA.includes(x.value)){
+            console.log(x.value);
+            game.wins; game.remaining; game.correctGuess += x.value; game.goodSound.play();
            console.log (`TEST PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
           }  
-          if (!splitA.includes(event.key.toLowerCase())){
-            game.wins; game.remaining--; game.wrongGuess += event.key; game.badSound.play();
+          if (!splitA.includes(x.value)){
+            console.log(x.value);
+            game.wins; game.remaining--; game.wrongGuess += x.value; game.badSound.play();
            console.log (`TEST NOT PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
           } 
           if (game.remaining === 0){
             game.loseSound.play();
             console.log(' Game Over - reload page and try again')
-          }        
+          }  
+          else {
+            document.getElementById("demo").innerHTML = "The correct word is: " + "insert word";
+          }      
     });
 }
 
