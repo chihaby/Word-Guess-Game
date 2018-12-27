@@ -36,10 +36,12 @@ var x = document.getElementById("userInput");
 function main() {
           if (splitA.includes(x.value)){
             game.wins; game.remaining; game.correctGuess += x.value; game.goodSound.play();
+            document.getElementById("correctBox").innerHTML = game.correctGuess;
            console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
           }  
           if (!splitA.includes(x.value)){
             game.wins; game.remaining--; game.wrongGuess += x.value; game.badSound.play();
+            document.getElementById("wrongBox").innerHTML = game.wrongGuess;
            console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
           } 
           if (game.remaining === 0){
