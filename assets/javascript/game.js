@@ -37,12 +37,18 @@ function main() {
           if (splitA.includes(x.value)){
             game.wins; game.remaining; game.correctGuess += x.value; game.goodSound.play();
             document.getElementById("correctBox").innerHTML = game.correctGuess;
-           console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
+            console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
+
           }  
+          if(game.singerA === game.correctGuess){
+            game.wins++;  game.remaining; game.correctGuess += x.value; game.winSound.play();
+            document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! ";
+            console.log (`YOU WON!! ===> Wins: ${game.wins} `);
+          }
           if (!splitA.includes(x.value)){
             game.wins; game.remaining--; game.wrongGuess += x.value; game.badSound.play();
             document.getElementById("wrongBox").innerHTML = game.wrongGuess;
-           console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
+            console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
           } 
           if (game.remaining === 0){
             game.loseSound.play();
