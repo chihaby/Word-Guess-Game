@@ -5,7 +5,7 @@ var game = {
   singerB : 'clapton',
   singerC : 'hendrix',
   wins : 0,
-  remaining : 10,
+  remaining : 5,
   correctGuess: '',
   wrongGuess : '',
   goodSound: new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/goodbell.mp3"),
@@ -21,6 +21,18 @@ var splitC = game.singerC.split('');
 
 var x = document.getElementById("userInput");
 
+  x.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+     document.getElementById("userButton").click();
+      x.value = "";
+    }
+  });
+  
+  $( "#userButton" ).click(function() {
+    x.value = "";
+  });
+
 function main() {
           if (splitA.includes(x.value)){
             game.wins; game.remaining; game.correctGuess += x.value; game.goodSound.play();
@@ -32,11 +44,8 @@ function main() {
           } 
           if (game.remaining === 0){
             game.loseSound.play();
-            console.log(' Game Over - reload page and try again')
+            document.getElementById("revel").innerHTML = "Game Over <br> The correct word is: " + "Queen";
           }  
-          else {
-            // document.getElementById("demo").innerHTML = "The correct word is: " + "insert word";
-          }      
 }
 
 

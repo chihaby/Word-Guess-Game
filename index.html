@@ -15,14 +15,15 @@
 <body>
     <div>
         <h2>Word-Guessing-Game</h2>
-        <h3>start guessing</h3>
+        <h4>start guessing</h4>
+        <p><b type='text' id= 'revel'></b></p>
     </div>
     <div class="game">
         <div class="guess"></div>
-        <input type="text" id="userInput">
-        <button type="button" onclick="main()">Guess</button>
-
-        <p>Hint: words are web related. <br/></p>
+        <input type="text" id="userInput" maxlength="1"  placeholder="Enter a letter . . . &#x23ce;"/>
+        <button type="button" id='userButton' onclick="main()" >Guess</button>
+       
+        <p>Enter a letter and press Enter <br/></p>
         <div class="wrong">
           <div class="wrongLetters"></div>
         </div>

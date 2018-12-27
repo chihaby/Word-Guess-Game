@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    background: rgb(196, 188, 188);
+    font-family: "Londrina Solid", cursive;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+  
+  }
+
+  /* .game {
+    font-family: "Londrina Solid", cursive;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+   } */
+  
+  h2 {
+    font-size: 50px;
+    color: rgb(27, 22, 15);
+    font-weight: 300;
+  }
+  
+   h4 {
+    font-size: 30px;
+    font-weight: 300;
+    color: rgb(0, 41, 65)
+    margin-top: -30px;
+    margin-bottom: 10px;
+  }
+
+
+  b {
+    color: rgb(53, 53, 255);
+    font-weight: bolder;
+    border: 10px;
+    border-color: red;
+  }
+ 
+
+ 
