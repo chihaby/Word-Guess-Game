@@ -24,9 +24,11 @@
     font-size: 50px;
     color: rgb(27, 22, 15);
     font-weight: 300;
+    margin-bottom: -40px;
+   
   }
   
-   h4 {
+  h4 {
     font-size: 30px;
     font-weight: 300;
     color: rgb(0, 41, 65)
@@ -36,7 +38,7 @@
 
 
   b {
-    color: rgb(53, 53, 255);
+    color: rgb(255, 53, 53);
     font-weight: bolder;
     border: 10px;
     border-color: red;

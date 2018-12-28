@@ -1,9 +1,7 @@
 
 
 var game = {
-  singerA : 'queen',
-  singerB : 'clapton',
-  singerC : 'hendrix',
+  singers : ['queen', 'clapton', 'hendrix', 'santana'],
   wins : 0,
   remaining : 5,
   correctGuess: '',
@@ -15,46 +13,47 @@ var game = {
   // init : main()
 }
 
-var splitA = game.singerA.split('');
-var splitB = game.singerB.split('');
-var splitC = game.singerC.split('');
-
+var rand = game.singers[Math.floor(Math.random() * game.singers.length)];
+var hide = rand.replace(/[a-zA-Z]/g, '-');
+var displayHide = document.getElementById("correctBox").innerHTML = hide;
 var x = document.getElementById("userInput");
+var enter = x.addEventListener("keyup", function(event) {
+              event.preventDefault();
+              if (event.keyCode === 13) {
+                document.getElementById("userButton").click();
+                x.value = "";
+               }
+            });
+var click = $( "#userButton" ).click(function() {
+            x.value = "";
+            });
 
-  x.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-     document.getElementById("userButton").click();
-      x.value = "";
-    }
-  });
-  
-  $( "#userButton" ).click(function() {
-    x.value = "";
-  });
+displayHide;
+enter;
+click;
 
 function main() {
-          if (splitA.includes(x.value)){
-            game.wins; game.remaining; game.correctGuess += x.value; game.goodSound.play();
-            document.getElementById("correctBox").innerHTML = game.correctGuess;
-            console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
-
-          }  
-          if(game.singerA === game.correctGuess){
-            game.wins++;  game.remaining; game.correctGuess += x.value; game.winSound.play();
-            document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! ";
-            console.log (`YOU WON!! ===> Wins: ${game.wins} `);
-          }
-          if (!splitA.includes(x.value)){
-            game.wins; game.remaining--; game.wrongGuess += x.value; game.badSound.play();
-            document.getElementById("wrongBox").innerHTML = game.wrongGuess;
-            console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
-          } 
-          if (game.remaining === 0){
-            game.loseSound.play();
-            document.getElementById("revel").innerHTML = "Game Over <br> The correct word is: " + "Queen";
-          }  
-}
+  if (rand.includes(x.value)){
+    game.wins; game.remaining; game.correctGuess += x.value; game.goodSound.play();
+    document.getElementById("correctBox").innerHTML = hide + game.correctGuess;
+    console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
+  }  
+  if(rand === game.correctGuess){
+    game.wins++;  game.remaining; game.correctGuess += x.value; game.winSound.play();
+    document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! ";
+    console.log (`YOU WON!! ===> Wins: ${game.wins} `);
+  }
+  if (!rand.includes(x.value)){
+    game.wins; game.remaining--; game.wrongGuess += x.value; game.badSound.play();
+    document.getElementById("wrongBox").innerHTML = game.wrongGuess + ' ' + game.remaining + ' ' + 'chances remaining ';
+    console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
+  } 
+  if (game.remaining === 0){
+    game.loseSound.play();
+    document.getElementById("revel").innerHTML = "Game Over <br> The correct word is: " + rand + "<br> click below to play again";
+  } 
+  return;
+} 
 
 
 
