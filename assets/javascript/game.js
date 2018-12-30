@@ -1,9 +1,9 @@
 
 
 var game = {
-  singers : ['queen', 'clapton', 'hendrix', 'santana'],
+  singers : ['queen'],
   wins : 0,
-  // remaining : 5,
+  remaining : 5,
   correctGuess: '',
   wrongGuess : '',
   goodSound: new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/goodbell.mp3"),
@@ -13,10 +13,13 @@ var game = {
   // init : main()
 }
 
+
+
 var rand = game.singers[Math.floor(Math.random() * game.singers.length)];
-var hide = rand.replace(/[a-zA-Z]/g, '-');
-var remaining = rand.length;
+var randSpl = rand.split('');
+var hide = randSpl.replace(/[a-zA-Z]/g, '_');
 var displayHide = document.getElementById("correctBox").innerHTML = hide;
+var output = '';
 var x = document.getElementById("userInput");
 var enter = x.addEventListener("keyup", function(event) {
               event.preventDefault();
@@ -33,12 +36,17 @@ displayHide;
 enter;
 click;
 
+
+
 function main() {
-  if (rand.includes(x.value)){
-    // displayHide = x.value;
-    game.wins; remaining; game.correctGuess += x.value; game.goodSound.play();
-    document.getElementById("correctBox").innerHTML = hide + game.correctGuess;
-    console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${remaining}   Correct Guesses: ${game.correctGuess}`);
+  if (randSpl.includes(x.value)){
+    for(var i=0; i<randSpl.length; i++){  
+     hide = hide[i].replace(/_/g, x.value);
+    }
+    
+    game.wins; game.correctGuess += x.value; game.goodSound.play();
+    document.getElementById("correctBox").innerHTML = hide ;
+    console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
   }  
   if(rand === game.correctGuess){
     game.wins++;  remaining; game.correctGuess += x.value; game.winSound.play();
@@ -46,11 +54,11 @@ function main() {
     console.log (`YOU WON!! ===> Wins: ${game.wins} `);
   }
   if (!rand.includes(x.value)){
-    game.wins; remaining--; game.wrongGuess += x.value; game.badSound.play();
-    document.getElementById("wrongBox").innerHTML = game.wrongGuess + ' ' + remaining + ' ' + 'chances remaining ';
-    console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${remaining}   Guessed Wrong: ${game.wrongGuess} `);
+    game.wins; game.remaining--; game.wrongGuess += x.value; game.badSound.play();
+    document.getElementById("wrongBox").innerHTML = game.wrongGuess + ' ' + game.remaining + ' ' + 'chances remaining ';
+    console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
   } 
-  if (remaining === 0){
+  if (game.remaining === 0){
     game.loseSound.play();
     document.getElementById("revel").innerHTML = "Game Over <br> The correct word is: " + rand + "<br> try again";
   } 
@@ -59,16 +67,10 @@ function main() {
 
 
 
-
-
-
-
-
-
-
-
-
-
+// window.onload = function(){
+//   setup();
+//   main();
+// }
 
 // hiddenA = game.singerA.replace(/[a-zA-Z]/g, '-');
 // hiddenB = game.singerB.replace(/[a-zA-Z]/g, '-');
