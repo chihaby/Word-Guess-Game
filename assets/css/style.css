@@ -1,36 +1,58 @@
 * {
     box-sizing: border-box;
   }
+
   html, body {
     height: 100%;
   }
-  body {
-    background: rgb(196, 188, 188);
-    font-family: "Londrina Solid", cursive;
-    margin: 0 auto;
-    text-align: center;
-    padding: 10px;
-  
-  }
 
-  /* .game {
-    font-family: "Londrina Solid", cursive;
+  body {
+    background:	goldenrod;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     margin: 0 auto;
     text-align: center;
     padding: 10px;
-   } */
+  }
   
   h2 {
     font-size: 50px;
     color: rgb(27, 22, 15);
     font-weight: 300;
     margin-bottom: 10px;
-   
   }
   
   b {
-    color: rgb(255, 53, 53);
+    color: rgba(142, 192, 26, 0.336);
   }
- 
 
- 
+  #correctBox{
+    color: blue;
+    font-style: unset;
+    font-size: 25px;
+    padding: -20px;
+    margin-top: -10px;
+  }
+
+  #wrongBox {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    color: rgb(243,4,4);
+    font-size: 15px;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  } 
+
+  #revel {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    color: whitesmoke;
+    font-size: 15px;
+    text-align: center;
+  } 
+
+
+  #won {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    color:blue;
+    font-size: 20px;
+    text-align: center;
+  } 
