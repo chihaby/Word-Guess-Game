@@ -58,7 +58,7 @@ function main() {
   } 
   if (game.remaining === 0){
     game.loseSound.play();
-    document.getElementById("revel").innerHTML = "Island name  is: " + rand + "<br> play again";
+    document.getElementById("revel").innerHTML = "Island name is: " + rand + "<br> play again";
   } 
   return;
 } 
