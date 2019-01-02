@@ -1,9 +1,9 @@
 
 
 var game = {
-  singers : ['queen'],
+  singers : ['bali'],
   wins : 0,
-  remaining : 5,
+  remaining : 2,
   correctGuess: '',
   wrongGuess : '',
   goodSound: new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/goodbell.mp3"),
@@ -11,8 +11,6 @@ var game = {
   winSound: new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/win.mp3"),
   loseSound: new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/lose.mp3"),
 }
-
-
 
 var rand = game.singers[Math.floor(Math.random() * game.singers.length)];
 var randSpl = rand.split('');
@@ -60,7 +58,7 @@ function main() {
   } 
   if (game.remaining === 0){
     game.loseSound.play();
-    document.getElementById("revel").innerHTML = "The correct word is: " + rand + "<br> play again";
+    document.getElementById("revel").innerHTML = "Island name  is: " + rand + "<br> play again";
   } 
   return;
 } 
