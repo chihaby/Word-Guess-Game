@@ -47,7 +47,7 @@ function main() {
     
   if(hideSpl.join('') === rand){
     game.wins++;  game.remaining; game.correctGuess += x.value; game.winSound.play();
-    document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! ";
+    document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! " ;
     console.log (`YOU WON!! ===> Wins: ${game.wins} `);
   }
 
