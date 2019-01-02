@@ -3,6 +3,7 @@
 var game = {
   singers : ['bali'],
   wins : 0,
+  losses: 0,
   remaining : 2,
   correctGuess: '',
   wrongGuess : '',
@@ -42,12 +43,12 @@ function main() {
     }
       game.correctGuess += x.value; game.goodSound.play();
       document.getElementById("correctBox").innerHTML = hideSpl.join(' ') ;
-      console.log (`PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
+      console.log (`PASSED ===> Wins: ${game.wins}  Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
     }
     
   if(hideSpl.join('') === rand){
     game.wins++;  game.remaining; game.correctGuess += x.value; game.winSound.play();
-    document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! " ;
+    document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! " + "<br> Wins: "+ game.wins;
     console.log (`YOU WON!! ===> Wins: ${game.wins} `);
   }
 
@@ -57,8 +58,9 @@ function main() {
     console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
   } 
   if (game.remaining === 0){
-    game.loseSound.play();
-    document.getElementById("revel").innerHTML = "Island name is: " + rand + "<br> play again";
+    game.losses++; game.loseSound.play();
+    document.getElementById("revel").innerHTML = "Island name is: " + rand  + "<br> Losses"+ game.losses + "<br> Press any key to continue";
+
   } 
   return;
 } 
