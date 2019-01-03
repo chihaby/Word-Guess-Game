@@ -1,10 +1,10 @@
 
 
 var game = {
-  singers : ['bali'],
+  singers : ['bali', 'hawaii', 'santorini', 'malta', 'cyprus', 'capri', 'tahiti', ],
   wins : 0,
   losses: 0,
-  remaining : 2,
+  remaining : 10,
   correctGuess: '',
   wrongGuess : '',
   goodSound: new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/goodbell.mp3"),
@@ -42,14 +42,12 @@ function main() {
       }
     }
       game.correctGuess += x.value; game.goodSound.play();
-      document.getElementById("correctBox").innerHTML = hideSpl.join(' ') ;
-      console.log (`PASSED ===> Wins: ${game.wins}  Remaining: ${game.remaining}   Correct Guesses: ${game.correctGuess}`);
+      document.getElementById("correctBox").innerHTML = hideSpl.join("  ") ;
     }
-    
+
   if(hideSpl.join('') === rand){
     game.wins++;  game.remaining; game.correctGuess += x.value; game.winSound.play();
-    document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!! " + "<br> Wins: "+ game.wins;
-    console.log (`YOU WON!! ===> Wins: ${game.wins} `);
+    document.getElementById("won").innerHTML = "CONGRATUALTIONS YOU WON!!!  <br> Play Again? " ;
   }
 
   if (!rand.includes(x.value)){
@@ -57,12 +55,10 @@ function main() {
     document.getElementById("wrongBox").innerHTML = game.wrongGuess + '<br>' + game.remaining + ' ' + 'chances remaining ';
     console.log (`- NOT - PASSED ===> Wins: ${game.wins}   Remaining: ${game.remaining}   Guessed Wrong: ${game.wrongGuess} `);
   } 
+
   if (game.remaining === 0){
     game.losses++; game.loseSound.play();
-    document.getElementById("revel").innerHTML = "Island name is: " + rand  + "<br> Losses"+ game.losses + "<br> Press any key to continue";
-
+    document.getElementById("revel").innerHTML = "Island name is: " + rand  + "<br> Play Again?";
   } 
-  return;
 } 
 
-//exit code
